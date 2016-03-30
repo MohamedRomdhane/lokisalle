@@ -1,6 +1,6 @@
 <?php 
 require_once "inc/init.inc.php";
-debug($_POST);
+
 creationPanier(); // je créé un panier
 
 if(!empty($_GET['action']) && $_GET['action'] == 'vider_panier') {
@@ -23,14 +23,15 @@ if(!empty($_GET['action']) && $_GET['action'] == 'payer'){
 
 
 if(isset($_POST['ajout_panier'])) {
-   echo '$msg="TEST";';
-   $produitAjoute = recupInfoSalle($_GET['id_produit']);
-   if(!$produitAjoute) { 
-      header('location:reservation.php');
-      exit();
+   $msg="TEST";
+  $produitAjoute = recupInfoSalle($_GET['id_produit']);
+  if(!$produitAjoute) { // si le produit n'existe pas c'est qu'il y a eu triche
+    header('location:reservation.php');
+    exit();
   } else {
-      ajouterArticleDansPanier($produitAjoute['titre'],$produitAjoute['id_produit'],$produitAjoute['date_arrivee'],$produitAjoute['date_depart'],$produitAjoute['photo']);
-      header('location:panier.php'); 
+
+    ajouterArticleDansPanier($produitAjoute['titre'],$produitAjoute['id_produit'],$produitAjoute['date_arrivee'],$produitAjoute['date_depart'],$produitAjoute['photo']);
+    header('location:panier.php'); // je rafraichi la page pour supprimer le renvoi des posts, dans le cas ou l'internaute appuie sur F5 (actualisation de page)
   }
 }
 
