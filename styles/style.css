@@ -213,6 +213,10 @@ article {
     padding: 3rem;
     margin: 2rem auto;
 }
+
+#gaucheDiv img, iframe {
+    width:80%;
+}
 .commentaire{
     width: 45%;
     display: inline-block;

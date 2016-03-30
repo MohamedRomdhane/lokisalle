@@ -1,6 +1,7 @@
 <?php
 require_once 'inc/init.inc.php'; 
 
+	$produit_achetes = array();
 // si j'ai un get deconnexion avec la valeur "ok" alors je supprimme la session utilisateur
 
 if(!empty($_GET['action']) && $_GET['action'] == 'deconnexion') {
@@ -27,13 +28,25 @@ if(isset($_POST['connexion'])) {
 	$recup_mdp->execute();
 	if($recup_mdp->rowCount() == 1) { // si je trouve quelqu'un
 	$membre = $recup_mdp->fetchAll(PDO::FETCH_ASSOC);
+
 	// var_dump($membre);
 	// var_dump($_POST);
 	// var_dump($mdp);
 	// var_dump(password_verify($mdp, $membre[0]['mdp']));
 	// je verifie si le mot de passe rappatrié, correspond au mot de passe donné dans le $_POST['mdp']
 		if(password_verify($mdp, $membre[0]['mdp'])) {
+
+			// lier COMMANDE avec DETAIL_COMMANDE avec MEMBRE avec PRODUIT pour recuperer les ID_SALLE qui proviennent des PRODUIT qui ont été commandés par le MEMBRE
+			$recup_commande_membre = $lokisalle->query('SELECT produit.id_salle FROM produit 
+														INNER JOIN details_commande ON produit.id_produit = details_commande.id_produit
+														INNER JOIN commande ON details_commande.id_commande = commande.id_commande
+														INNER JOIN membre ON commande.id_membre = membre.id_membre WHERE membre.id_membre = '. $membre[0]['id_membre']);
 			
+			// $produit_achetes = $recup_commande_membre->fetchAll(PDO::FETCH_NUM);
+			while ($recup_produit_achetes = $recup_commande_membre->fetch(PDO::FETCH_ASSOC)) {
+				$produit_achetes[] = $recup_produit_achetes['id_salle'];
+			}
+			// var_dump(get_class_methods($recup_commande_membre));
 			$msg = '<div class="good">C gagné !</div>'; // Déclaration de la variable $msg
 			
 			$_SESSION['membre']['id_membre'] = $membre[0]['id_membre'];
@@ -46,6 +59,7 @@ if(isset($_POST['connexion'])) {
 			$_SESSION['membre']['ville'] = $membre[0]['ville'];
 			$_SESSION['membre']['cp'] = $membre[0]['cp'];
 			$_SESSION['membre']['statut'] = $membre[0]['statut'];
+			$_SESSION['membre']['achat_membre'] = $produit_achetes; // Ce tableau contient tous les id_salle des produit achetes pas le client
 			
 			header('location:profil.php');
 			die();
@@ -57,7 +71,6 @@ if(isset($_POST['connexion'])) {
 		$msg = '<div class="erreur">C perdu ! C\'est pas les bons identifiants !</div>';
 	}
 }
-
 
 
 
@@ -101,6 +114,7 @@ include_once 'inc/header.inc.php'; // on appelle le header.php
 </div>
 
 <?php
+
 include_once 'inc/footer.inc.php';
 
 ?>

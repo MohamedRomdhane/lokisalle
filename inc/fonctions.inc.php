@@ -68,11 +68,16 @@ function creationPanier() {
 
 
 function ajouterArticleDansPanier($titre, $id_produit, $date_arrivee, $date_depart, $photo) {
+	$position_article = array_search($id_produit, $_SESSION['panier']['id_produit']); // array_search me renvoi la clé de la valeur que je recherche dans un tableau. ici je recherche la clé du $id_produit dans le tableau $_SESSION['panier']['id_produit']
+	if($position_article !== false) { // si array_search me renvoi un nombre, c'est qu'il a trouvé quelque chose
+		$_SESSION['panier']['date_arrivee'][$position_article] += $date_arrivee;
+	} else 	{
 		$_SESSION['panier']['titre'][] = $titre; // avec les crochets vides c'est comme si j'écrivais $_SESSION['panier']['titre'][0] = $titre, [1] = $titre etc.. Chaque id_produit qui va s'ajouter dans le Panier, aura automatiquement une clé numérique incrémentée
 		$_SESSION['panier']['id_produit'][] = $id_produit;
 		$_SESSION['panier']['date_arrivee'][] = $date_arrivee;
 		$_SESSION['panier']['date_depart'][] = $date_depart;
 		$_SESSION['panier']['photo'][] = $photo;
+	}
 }
 
 function retirerArticleDuPanier($id_a_suppr) {

@@ -29,14 +29,14 @@ $ancienne_photo = '';
 
 
  if(isset($_POST['envoi'])){
-    if($_GET['action'] == 'ajout'){
-	   	$check_titre = $lokisalle->prepare('SELECT titre FROM salle WHERE titre = :titre');
+
+	 	$check_titre = $lokisalle->prepare('SELECT titre FROM salle WHERE titre = :titre');
 	    $check_titre->bindValue(':titre', $titre, PDO::PARAM_STR);
 	    $check_titre->execute();
-	    if($check_titre->rowCount() > 0) 
+	    if($check_titre->rowCount() > 0) {
 	      $msg = '<p class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Le Titre est déjà présente en BDD</p>';
 	    }else{
-	        $enregistrement_info_salle = $lokisalle->prepare("REPLACE INTO salle(pays, ville, adresse, cp, titre, photo, description, capacite, categorie) VALUES(:pays, :ville, :adresse, :cp, :titre, :photo, :description, :capacite, :categorie)");
+	        $enregistrement_info_salle = $lokisalle->prepare("INSERT INTO salle(pays, ville, adresse, cp, titre, photo, description, capacite, categorie) VALUES(:pays, :ville, :adresse, :cp, :titre, :photo, :description, :capacite, :categorie)");
 	   
 	        //var_dump(get_class_methods($enregistrement_info_salle));
 	        // je lie les arguments de ma requete aux variables issues du $_POST
@@ -102,7 +102,7 @@ if (!empty($_GET['id_salle']) && is_numeric($_GET['id_salle'])) {
   <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"> <?= ($_GET['action']== 'modification')? 'Modifier' : 'Ajouter'  ?> une salle</h3>
+        <h3 class="panel-title">Ajouter une salle</h3>
       </div>
       <div class="panel-body">
         <form method="post" enctype="multipart/form-data" role="form">
