@@ -1,0 +1,232 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+html{
+	font-size:62.5%;
+	text-align:center;
+}
+
+body{
+	background-image: url(http://localhost/PHP/lokisalle/assets/images/header.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+}
+
+#message{
+	position: absolute;
+    top: 12rem;
+    width: 45%;
+    height: 5rem;
+    left: 29%;
+}
+
+header img{
+    width: 15rem;
+    position: relative;
+    top: 1rem;
+}
+
+h1{
+		text-transform: uppercase;
+	    color: #E7D8BC;
+	    margin: 0 auto;
+	    display:inline-block;
+	    width: 60%;
+	    margin-bottom:5rem;
+}
+
+ul{
+	    list-style-type: none;
+}
+#logo {
+    display: inline-block;
+    border-radius: 45%;
+    overflow: hidden;
+    position: fixed;
+    top: 2rem;
+    left: 5rem;
+    background-color: #180D16;
+    z-index: 9000;
+    height: 9rem;
+}
+
+nav{
+	position: fixed;
+    width: 100%;
+    z-index: 800;
+
+
+}
+
+nav li{
+	display:inline-block;
+
+}
+nav a{
+	display: inline-block;
+	    width: 17rem;
+	    height: 5rem;
+	    line-height: 5rem;
+	    color: #E7D8C7;
+}
+
+nav ul{
+	width: 80%;
+	height: 9rem;
+	display: inline-block;
+	margin-top: 2rem;
+	z-index: 1000;
+
+}
+
+footer{
+	position: fixed;
+    bottom: 0;
+    z-index: 300;
+    width: 100%;
+    height: 6rem;
+    background-color: #0D1D33;
+    line-height: 6rem;
+}
+
+footer a{
+    padding:0 2rem;
+    color: #E7D8BC;
+}
+
+
+footer li{
+    display:inline-block;
+}
+
+#imgBackground{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+}
+
+
+#centrer{
+	position: absolute;
+	top: 22%;
+	left: 12%;
+	width: 80%;
+}
+
+input[type="radio"]{
+	width: 2.5rem;
+
+	vertical-align: -57%;
+}
+
+/*Page de reservation*/
+.group{
+	    width: 30%;
+	    display: inline-block;
+	    margin-top: 2%;
+}
+
+.panelBody{
+	background-color: white;
+    width: 42%;
+    margin: 4rem auto;
+    height: 26rem;
+    display: inline-block;
+    padding: 5rem 5rem;
+        border-radius: 1rem;
+}
+/*Page de connexion*/
+
+#formulaire{
+		margin: auto;    
+}
+
+.bouton{
+	width: 28rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    font-size: 3rem;
+    margin: 0 auto;
+}
+
+.profil li{
+	color:deepblue;
+	list-style-type:none;
+	font-weight:200;
+	font-size:2.5rem;
+
+}
+.profil{
+	background-color:white;
+	width:25%;
+	margin:0 auto;
+	text-align:left;
+	padding:2rem 4rem;
+}
+
+#boutonDaffichage{
+	    margin-bottom: 10rem;
+}
+.tableau{
+	width:110%;
+	background-color:white;
+}
+.tableau img{
+	width:15rem;
+}
+.tableau th{
+	text-align:center;
+}
+
+article {
+    background-color: white;
+    width: 50%;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+    font-size: 2.3rem;
+    font-weight: 200;
+}
+
+#top{
+    background-color: #BE6B3C;
+    width: 70%;
+    padding: 2rem;
+    display: block;
+    margin: 0 auto;
+
+}
+
+#droiteDiv{
+    background-color: #BE6B3C;
+    width: 70%;
+    display: block;
+    margin: 2rem auto 5rem;
+    padding: 2rem 0 3rem;
+}
+#gaucheDiv {
+    background-color: #DBA782;
+    width: 70%;
+    display: block;
+    padding: 3rem;
+    margin: 2rem auto;
+}
+.commentaire{
+    width: 45%;
+    display: inline-block;
+}
+.note{
+	    width: 55%;
+    display: block;
+    margin: 0 auto;
+}
+
+#avis{
+	    display: inline-block;
+    width: 90%;
+    text-align: center;
+    border-bottom: solid 1px black;
+    height: auto;
+}
