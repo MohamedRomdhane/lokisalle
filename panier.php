@@ -44,8 +44,8 @@ include_once "inc/header.inc.php";
       <tr>
         <th>Nom de la salle</th>
         <th>Photo</th>
-        <th>Date arrivée</th>
-        <th>Date depart</th>
+        <th>Date arrivée :</th>
+        <th>Date depart :</th>
         <th>Modifier</th>
         <th>Supprimer</th>
       </tr>
