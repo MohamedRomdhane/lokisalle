@@ -28,7 +28,7 @@ if(isset($_POST['connexion'])) {
 	$recup_mdp->execute();
 	if($recup_mdp->rowCount() == 1) { // si je trouve quelqu'un
 	$membre = $recup_mdp->fetchAll(PDO::FETCH_ASSOC);
-
+BONJOUR MONSIEUR TOMBOLAS
 	// var_dump($membre);
 	// var_dump($_POST);
 	// var_dump($mdp);
