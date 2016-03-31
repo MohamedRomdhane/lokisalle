@@ -29,7 +29,7 @@ include_once "inc/header.inc.php";
 			<a href="reservation_details.php?id_produit=<?= $check[$i]['id_produit'] ?>" class="btn btn-info btn-block"> Voir la fiche détaillée </a>
 			<a href="panier.php?id_produit=<?= $check[$i]['id_produit'] ?> "name="ajout_panier" class="btn btn-info btn-block">Ajouter au panier</a>
   		</div>
-  		
+  			<p> Ronan a bien mergé </p>
 			<!-- </div> -->
 		</div>
 		   
